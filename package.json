@@ -1,0 +1,25 @@
+{
+  "name": "twitter-lastfm-status",
+  "version": "0.0.1",
+  "description": "Tweet last.fm status",
+  "engine": {
+    "node": ">=8.11.3"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcker/twitter-lastfm-status.git"
+  },
+  "keywords": [
+    "keyword"
+  ],
+  "author": "marcker <marckfree@gmail.com> (http://marcker.herokuapp.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcker/twitter-lastfm-status/issues"
+  },
+  "homepage": "https://github.com/marcker/twitter-lastfm-status#readme"
+}
