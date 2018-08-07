@@ -5,13 +5,14 @@ const { map, concatMap, filter, tap } = require('rxjs/operators')
 
 const site = express()
 const port = process.env.PORT || 8080
+const apiKey = process.env.LASTFM_API_KEY
 
 site.use(express.static('public'))
 site.set('view engine', 'ejs')
 
 const trackData = {}
 
-request('http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=marcker_&api_key=baaccde80c5310f6404a5307ec3b9b50&format=json', (error, resp, body) => {
+request(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=marcker_&api_key=${apiKey}&format=json`, (error, resp, body) => {
 	of(JSON.parse(body))
 		.pipe(
 			map(json => json['recenttracks']['track']),
