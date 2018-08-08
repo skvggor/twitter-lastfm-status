@@ -1,6 +1,29 @@
 <main>
-	<div>
-		<p><strong><%= data.track %></strong> by <%= data.artist %> from <%= data.album %>.</p>
-		<img src="<%= data.imageUrl %>" alt="">
-	</div>
+	<% if (data.artist) { %>
+		<% if (data.nowplaying) { %>
+		<div>
+			<h1>Ouvindo agora</h1>
+			<p>
+				<strong>Artista:</strong> <%= data.artist %><br>
+				<strong>Música:</strong> <%= data.track %><br>
+				<strong>Álbum:</strong> <%= data.album %>
+			</p>
+
+			<img src="<%= data.imageUrl %>" alt="Capa do álbum <%= data.album %> - <%= data.artist %>.">
+		</div>
+		<% } else { %>
+		<div>
+			<h1>Última música</h1>
+			<p>
+				<strong>Artista:</strong> <%= data.artist %><br>
+				<strong>Música:</strong> <%= data.track %><br>
+				<strong>Álbum:</strong> <%= data.album %>
+			</p>
+
+			<img src="<%= data.imageUrl %>" alt="Capa do álbum <%= data.album %> - <%= data.artist %>.">
+		</div>
+		<% } %>
+	<% } else { %>
+		<p>Carregando...</p>
+	<% } %>
 </main>
