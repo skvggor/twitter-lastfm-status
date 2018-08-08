@@ -8,7 +8,7 @@ const getDataModule = require('./lastfm.service.js')
 const site = express()
 const port = process.env.PORT || 8080
 
-site.use(express.static('public'))
+site.use(express.static('assets'))
 site.set('view engine', 'ejs')
 
 const interval = 4000
@@ -25,7 +25,7 @@ const trackData = {
 setInterval(() => {
 	getDataModule((data) => {
 		const json = JSON.parse(data)
-
+		
 		of(json).pipe(
 			map(json => json['recenttracks']['track']),
 			concatMap(json => json),

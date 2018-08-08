@@ -2,7 +2,29 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Tweet last.fm status</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="application-name" content="&nbsp;">
+		<meta name="msapplication-TileColor" content="#FFFFFF">
+		<meta name="msapplication-TileImage" content="img/mstile-144x144.png">
+
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+		<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16">
+
+		<% if (data.artist) { %>
+		<meta property="og:title" content="<%= data.artist %> - <%= data.track %> (<%= data.album %>)">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="/">
+		<meta property="og:description" content="Este é o meu último status no last.fm.">
+		<meta property="og:image" content="<%= data.imageUrl %>">
+		<meta property="og:image:width" content="300">
+		<meta property="og:image:height" content="300">
+		<title><%= data.artist %> - <%= data.track %> (<%= data.album %>)</title>
+		<% } else { %>
+		<title>Carregando...</title>
+		<% } %>
 	</head>
 	<body>
 		<% include ../partials/main %>
